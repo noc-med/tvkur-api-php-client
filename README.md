@@ -11,7 +11,7 @@ For the installation uses composer composer. Add this project in your composer.j
 
 
     "require": {
-        "noc-med/tvkur-api-client": "dev-master"
+        "noc-med/tvkur-api-php-client": "dev-master"
     }
 
 
