@@ -1,12 +1,12 @@
 <?php
 /**
- * 
+ *
  * User: semihs
  * Date: 21.11.14
  * Time: 14:07
- * 
+ *
  */
- 
+
 
 namespace TvkurApiClient;
 
@@ -67,7 +67,13 @@ class TvkurApiClient extends AbstractClient {
             'Authorization' => $this->getTokenType() . ' ' . $this->getAccessToken(),
         ));
 
-        $client = new \Zend\Http\Client();
+        $client = new \Zend\Http\Client(null, array(
+            'adapter'   => 'Zend\Http\Client\Adapter\Curl',
+            'curloptions' => array(
+                CURLOPT_SSL_VERIFYHOST => false,
+                CURLOPT_SSL_VERIFYPEER => false,
+            ),
+        ));
         return $client->send($request);
     }
 } 

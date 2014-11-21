@@ -211,11 +211,22 @@ abstract class AbstractClient
 
         $oAuthConfigs = $this->getConfigs()['tvkur']['authentication']['oauth'];
         $request->getPost()
-            ->set('grant_type', $oAuthConfigs['grant_type'])
-            ->set('client_id', $oAuthConfigs['client_id'])
-            ->set('client_secret', $oAuthConfigs['client_secret']);
+            ->fromArray(
+                array(
+                    'grant_type' => $oAuthConfigs['grant_type'],
+                    'client_id' => $oAuthConfigs['client_id'],
+                    'client_secret' => $oAuthConfigs['client_secret']
+                )
+            );
 
-        $client = new \Zend\Http\Client();
+        $client = new \Zend\Http\Client(null, array(
+            'adapter'   => 'Zend\Http\Client\Adapter\Curl',
+            'curloptions' => array(
+                CURLOPT_SSL_VERIFYHOST => false,
+                CURLOPT_SSL_VERIFYPEER => false,
+            ),
+        ));
+        $client->setEncType(\Zend\Http\Client::ENC_URLENCODED);
         $response = $client->send($request);
 
         if ($response->getStatusCode() != 200) {
