@@ -3,12 +3,12 @@
  * 
  * User: semihs
  * Date: 21.11.14
- * Time: 13:56
+ * Time: 15:40
  * 
  */
- 
+
 namespace TvkurApiClient\Exception;
 
-class AuthenticationFailedException extends \Exception {
+class InvalidConfiguration extends \Exception {
 
 } 

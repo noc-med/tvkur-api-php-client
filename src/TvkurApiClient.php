@@ -12,8 +12,20 @@ namespace TvkurApiClient;
 
 use Zend\Http\Request;
 
+/**
+ * Class TvkurApiClient
+ * @package TvkurApiClient
+ */
 class TvkurApiClient extends AbstractClient {
 
+    /**
+     * @param null $id
+     * @param array $queryParams
+     * @return mixed
+     * @throws Exception\AuthenticationFailedAccessTokenException
+     * @throws Exception\AuthenticationFailedStatusException
+     * @throws Exception\InvalidModuleException
+     */
     public function get($id = null, $queryParams = array()) {
         if (empty($this->getApiPath())) {
             throw new Exception\InvalidModuleException(
@@ -33,7 +45,7 @@ class TvkurApiClient extends AbstractClient {
         }
 
         if ($response->getStatusCode() != 200) {
-            throw new Exception\AuthenticationFailedStatusCodeException(
+            throw new Exception\AuthenticationFailedStatusException(
                 'Api Response Failed. Body: ' . $response->getBody(),
                 $response->getStatusCode()
             );
@@ -42,6 +54,11 @@ class TvkurApiClient extends AbstractClient {
         return $response;
     }
 
+    /**
+     * @param null $id
+     * @param array $queryParams
+     * @return mixed
+     */
     protected function requestGet($id = null, $queryParams = array()) {
         $request = new Request();
         $request->setMethod(Request::METHOD_GET);

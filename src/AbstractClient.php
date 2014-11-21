@@ -46,7 +46,9 @@ abstract class AbstractClient
 
     /**
      * @param array $options
+     *
      * @throws Exception\InvalidOptionException
+     * @throws Exception\InvalidConfiguration
      */
     function __construct(array $options = array())
     {
@@ -56,6 +58,9 @@ abstract class AbstractClient
                     throw new Exception\InvalidOptionException();
                 }
             }
+        }
+        if (!empty($options['configs']) && (!empty($options['configs']['tvkur']) || !empty($options['configs']['tvkur']['api_url']))) {
+            throw new Exception\InvalidConfiguration('Invalid Configuration');
         }
     }
 
@@ -188,7 +193,8 @@ abstract class AbstractClient
     /**
      * @return $this
      *
-     * @throws
+     * @throws Exception\AuthenticationFailedStatusException
+     * @throws Exception\AuthenticationFailedAccessTokenException
      */
     public function createAccessToken()
     {
@@ -209,7 +215,7 @@ abstract class AbstractClient
         $response = $client->send($request);
 
         if ($response->getStatusCode() != 200) {
-            throw new Exception\AuthenticationFailedStatusCodeException(
+            throw new Exception\AuthenticationFailedStatusException (
                 'Tvkur api authentication failed. Body: ' . $response->getBody(),
                 $response->getStatusCode()
             );

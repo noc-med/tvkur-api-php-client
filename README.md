@@ -43,7 +43,7 @@ Configuration
 
 Using
 -----
-    $tvkurApiClient = new TvkurApiClient(
+    $tvkurApiClient = new TvkurApiClient\TvkurApiClient(
         array(
             'configs' => $configs
             'expire_in' => $expires_in, //optional
@@ -58,7 +58,7 @@ Using
 
 or
 
-    $tvkurApiClient = new TvkurApiClient();
+    $tvkurApiClient = new TvkurApiClient\TvkurApiClient();
     $tvkurApiClient->setConfigs($configs);
     $tvkurApiClient->video()->get($id, (array) $queryParams);
 
