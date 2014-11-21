@@ -90,9 +90,13 @@ abstract class AbstractClient
 
     /**
      * @param array $configs
+     * @throws Exception\InvalidConfiguration
      */
     public function setConfigs(array $configs)
     {
+        if (!empty($options['configs']['tvkur']) || !empty($options['configs']['tvkur']['api_url'])) {
+            throw new Exception\InvalidConfiguration('Invalid Configuration');
+        }
         $this->configs = $configs;
     }
 
