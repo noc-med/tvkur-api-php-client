@@ -13,8 +13,8 @@
         "zendframework/zend-http": "2.3.3"
     },
     "autoload" : {
-        "psr-0" : {
-            "TvkurApiClient" : "src/"
+        "psr-4" : {
+            "TvkurApiClient\\" : "src/"
         }
     }
 }
