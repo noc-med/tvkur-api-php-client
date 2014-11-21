@@ -1,0 +1,20 @@
+{
+    "name": "noc-med/tvkur-api-client",
+    "description": "Tvkur Api Php Sdk",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "semihs",
+            "email": "semih.sari@noc.com.tr"
+        }
+    ],
+    "require": {
+        "zendframework/zend-http": "2.3.3"
+    },
+    "autoload" : {
+        "psr-0" : {
+            "TvkurApiClient" : "src"
+        }
+    }
+}

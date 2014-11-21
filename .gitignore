@@ -1,0 +1,5 @@
+!.gitignore
+vendor
+composer.phar
+composer.lock
+.idea
