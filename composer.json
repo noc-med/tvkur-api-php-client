@@ -1,7 +1,7 @@
 {
     "name": "noc-med/tvkur-api-php-client",
     "description": "Tvkur Api Php Sdk",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "license": "proprietary",
     "authors": [
         {
