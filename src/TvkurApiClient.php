@@ -50,8 +50,9 @@ class TvkurApiClient extends AbstractClient {
                 $response->getStatusCode()
             );
         }
+        $this->setResponse($response);
 
-        return $response;
+        return $this;
     }
 
     /**
@@ -64,6 +65,7 @@ class TvkurApiClient extends AbstractClient {
         $request->setMethod(Request::METHOD_GET);
         $request->setUri($this->getApiPath());
         $request->getHeaders()->addHeaders(array(
+            'Accept' => 'application/json',
             'Authorization' => $this->getTokenType() . ' ' . $this->getAccessToken(),
         ));
 
@@ -75,5 +77,33 @@ class TvkurApiClient extends AbstractClient {
             ),
         ));
         return $client->send($request);
+    }
+
+    public function getJsonResponse() {
+        return $this->getResponse()->getBody();
+    }
+
+    public function getArrayResponse() {
+        return json_decode($this->getJsonResponse(), true);
+    }
+
+    public function getContent() {
+        return $this->getArrayResponse()['_embedded'];
+    }
+
+    public function getLinks() {
+        return $this->getArrayResponse()['_links'];
+    }
+
+    public function getPageCount() {
+        return $this->getArrayResponse()['page_count'];
+    }
+
+    public function getPageSize() {
+        return $this->getArrayResponse()['page_size'];
+    }
+
+    public function getTotalItems() {
+        return $this->getArrayResponse()['total_items'];
     }
 } 

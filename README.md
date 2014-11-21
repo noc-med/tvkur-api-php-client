@@ -55,12 +55,25 @@ Using
             'api_path' => $api_path, //optional
         )
     );
-    $tvkurApiClient->video()->get($id, (array) $queryParams);
+    $response = $tvkurApiClient->video()->get($id, (array) $queryParams);
 
 
 or
 
     $tvkurApiClient = new TvkurApiClient\TvkurApiClient();
     $tvkurApiClient->setConfigs($configs);
-    $tvkurApiClient->video()->get($id, (array) $queryParams);
+    $response = $tvkurApiClient->video()->get($id, (array) $queryParams);
+    
+    
+Response content
+
+
+    $response->getJsonResponse(); //salt json body
+    $response->getArrayResponse(); //salt array body
+    
+    $response->getContent(); //array video or stream array content
+    $response->getLinks(); //array prev next self links
+    $response->getPageCount(); //integer total page count
+    $response->getPageSize(); //integer items count per page
+    $response->getTotalItems(); //integer total items count
 

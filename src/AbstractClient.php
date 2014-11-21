@@ -44,6 +44,24 @@ abstract class AbstractClient
      */
     private $api_path;
 
+    private $response;
+
+    /**
+     * @return mixed
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * @param mixed $response
+     */
+    public function setResponse($response)
+    {
+        $this->response = $response;
+    }
+
     /**
      * @param array $options
      *
