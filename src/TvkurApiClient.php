@@ -8,7 +8,7 @@
  */
  
 
-namespace TvkurApiClient;
+namespace TvkurApiClient\TvkurApiClient;
 
 use Zend\Http\Request;
 

@@ -7,7 +7,7 @@
  *
  */
 
-namespace TvkurApiClient;
+namespace TvkurApiClient\TvkurApiClient;
 
 use Zend\Http\Request;
 
@@ -48,7 +48,7 @@ abstract class AbstractClient
      * @param array $options
      * @throws Exception\InvalidOptionException
      */
-    function __construct(array $options)
+    function __construct(array $options = array())
     {
         if (!empty($options)) {
             foreach ($options as $key => $value) {
