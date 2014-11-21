@@ -28,14 +28,16 @@ Configuration
 
 
     $configs = array (
-        'api_url' => 'https://api.tvkur.com',
-        'authentication' => array(
-            'oauth' => array(
-                'grant_type' => 'client_credentials',
-                'client_id' => 'your client id',
-                'client_secret' => 'your client secret',
-                // 'username' => '',
-                // 'password' => '',
+        'tvkur' => array(
+            'api_url' => 'https://api.tvkur.com',
+            'authentication' => array(
+                'oauth' => array(
+                    'grant_type' => 'client_credentials',
+                    'client_id' => '61414062410',
+                    'client_secret' => '18f98c0c61d091c985c1f4ebb5439158',
+                    // 'username' => '',
+                    // 'password' => '',
+                )
             )
         )
     )
