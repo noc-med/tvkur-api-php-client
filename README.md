@@ -20,7 +20,8 @@ if you don't have the composer.phar (https://getcomposer.org/download/)
 Requirements
 ------------
 
-Php 5.3 or Higher versions.
+Php 5.5 or Higher versions.
+Php curl extension is needed.
 zendframework/zend-http
 
 Configuration
