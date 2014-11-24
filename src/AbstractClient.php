@@ -77,7 +77,7 @@ abstract class AbstractClient
                 }
             }
         }
-        if (!empty($options['configs']) && (!empty($options['configs']['tvkur']) || !empty($options['configs']['tvkur']['api_url']))) {
+        if (!empty($options['configs']) && (empty($options['configs']['tvkur']) || empty($options['configs']['tvkur']['api_url']))) {
             throw new Exception\InvalidConfiguration('Invalid Configuration');
         }
     }
