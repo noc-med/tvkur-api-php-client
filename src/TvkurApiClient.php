@@ -61,9 +61,14 @@ class TvkurApiClient extends AbstractClient {
      * @return mixed
      */
     protected function requestGet($id = null, $queryParams = array()) {
+        $uri = $this->getApiPath();
+        if (!empty($id)) {
+            $uri .= '/' . $id;
+        }
+
         $request = new Request();
         $request->setMethod(Request::METHOD_GET);
-        $request->setUri($this->getApiPath());
+        $request->setUri($uri);
         $request->getHeaders()->addHeaders(array(
             'Accept' => 'application/json',
             'Authorization' => $this->getTokenType() . ' ' . $this->getAccessToken(),
