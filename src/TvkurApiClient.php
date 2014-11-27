@@ -65,6 +65,9 @@ class TvkurApiClient extends AbstractClient {
         if (!empty($id)) {
             $uri .= '/' . $id;
         }
+        if (!empty($queryParams)) {
+            $uri .= '?' . http_build_query($queryParams);
+        }
 
         $request = new Request();
         $request->setMethod(Request::METHOD_GET);
