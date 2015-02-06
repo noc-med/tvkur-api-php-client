@@ -185,9 +185,16 @@ abstract class AbstractClient
     /**
      * @return $this
      */
-    public function video()
+    public function video($queryParams)
     {
         $this->setApiPath('/video');
+
+        if (!empty($queryParams)) {
+            $this->setApiPath(
+                $this->getApiPath() . '?'
+                . http_build_query($queryParams)
+            );
+        }
 
         return $this;
     }
@@ -199,6 +206,13 @@ abstract class AbstractClient
     {
         $this->setApiPath('/stream');
 
+        if (!empty($queryParams)) {
+            $this->setApiPath(
+                $this->getApiPath() . '?'
+                . http_build_query($queryParams)
+            );
+        }
+
         return $this;
     }
 
@@ -208,6 +222,13 @@ abstract class AbstractClient
     public function playout()
     {
         $this->setApiPath('/playout');
+
+        if (!empty($queryParams)) {
+            $this->setApiPath(
+                $this->getApiPath() . '?'
+                . http_build_query($queryParams)
+            );
+        }
 
         return $this;
     }
