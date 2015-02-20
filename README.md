@@ -65,6 +65,11 @@ or
     $tvkurApiClient->setConfigs($configs);
     $response = $tvkurApiClient->video()->get($id, (array) $queryParams);
     
+    $response = $tvkurApiClient->video()->get(null, array('title' => 'test title'));
+    $response = $tvkurApiClient->video()->get(null, array('categoryId' => '4'));
+    $response = $tvkurApiClient->video()->get(null, array('categoryName' => 'test category name'));
+    $response = $tvkurApiClient->stream()->get(null, array('title' => 'test title'));
+    $response = $tvkurApiClient->playout()->get(null, array('title' => 'test title'));
     
 Response content
 
