@@ -1,5 +1,5 @@
 {
-    "name": "noc-med/tvkur-api-php-client",
+    "name": "nocvp/tvkur-api-php-client",
     "description": "Tvkur Api Php Sdk",
     "minimum-stability": "dev",
     "license": "proprietary",
